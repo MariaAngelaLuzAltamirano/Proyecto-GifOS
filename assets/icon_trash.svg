@@ -1,0 +1,29 @@
+<svg width="18" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+ <title>icon_trash</title>
+ <desc>Created with Sketch.</desc>
+ <defs>
+  <path id="path-1" d="m10.66667,0.83333c1.38071,0 2.5,1.11929 2.5,2.5l0,0l-0.001,0.833l3.33433,0.00034c0.42483,0 0.77542,0.3179 0.82684,0.7288l0.00649,0.10453c0,0.46024 -0.37309,0.83333 -0.83333,0.83333l0,0l-0.83433,0l0.001,10.83334c0,1.32548 -1.03154,2.41004 -2.33563,2.49468l-0.16437,0.00532l-8.33334,0c-1.38071,0 -2.5,-1.11929 -2.5,-2.5l0,0l-0.00066,-10.83334l-0.83267,0c-0.42483,0 -0.77542,-0.3179 -0.82684,-0.7288l-0.00649,-0.10453c0,-0.46024 0.37309,-0.83333 0.83333,-0.83333l0,0l3.33267,-0.00034l0.00066,-0.833c0,-1.32548 1.03154,-2.41004 2.33563,-2.49468l0.16437,-0.00532l3.33334,0zm3.333,5l-10,0l0.00033,10.83334c0,0.42483 0.3179,0.77541 0.7288,0.82684l0.10453,0.00649l8.33334,0c0.46023,0 0.83333,-0.3731 0.83333,-0.83333l0,0l-0.00033,-10.83334zm-3.333,-3.33333l-3.33334,0c-0.46023,0 -0.83333,0.3731 -0.83333,0.83333l0,0l-0.00033,0.833l5,0l0.00033,-0.833c0,-0.42483 -0.3179,-0.77541 -0.7288,-0.82684l-0.10453,-0.00649z"/>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="602" width="802" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g fill-rule="evenodd" fill="none" id="GIFOS">
+   <g id="00-UI-Kit">
+    <g id="icon-trash-hover">
+     <g id="icon_trash">
+      <mask transform="translate(7,6) translate(858,2903) translate(-865,-2909) " id="mask-2">
+       <use id="svg_1" xlink:href="#path-1"/>
+      </mask>
+      <use id="svg_2" x="0" y="0" xlink:href="#path-1" fill-rule="nonzero" fill="#572EE5"/>
+     </g>
+    </g>
+   </g>
+  </g>
+  <line stroke="#572EE5" stroke-linecap="null" stroke-linejoin="null" id="svg_5" y2="15.37493" x2="6.84378" y1="8.56252" x1="6.90628" stroke-width="1.5" fill="#572EE5"/>
+  <line stroke="#572EE5" stroke-linecap="null" stroke-linejoin="null" id="svg_6" y2="15.43743" x2="10.84373" y1="8.56252" x1="10.90623" stroke-width="1.5" fill="#572EE5"/>
+ </g>
+</svg>

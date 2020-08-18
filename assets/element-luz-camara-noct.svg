@@ -1,0 +1,23 @@
+<svg width="76" height="128" xmlns="http://www.w3.org/2000/svg">
+ <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+ <title>element-luz-camara</title>
+ <desc>Created with Sketch.</desc>
+ <defs>
+  <linearGradient id="linearGradient-1" y2="56.8445227%" x2="4.87561291%" y1="50%" x1="60.1486155%">
+   <stop offset="0%" stop-opacity="0" stop-color="#88F3E2"/>
+   <stop offset="100%" stop-color="#50E3C2"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="#37383c" id="canvas_background" height="130" width="78" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g fill-rule="evenodd" fill="none" id="GIFOS">
+   <g fill-rule="nonzero" fill="url(#linearGradient-1)" id="00-UI-Kit">
+    <polygon points="0,42.1728515625 91,-15 91,136 0,83.111572265625 " id="element-luz-camara"/>
+   </g>
+  </g>
+ </g>
+</svg>
