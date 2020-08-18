@@ -2,7 +2,7 @@
 
 //datos de la GIPHY :    dc6zaTOxFJmzC
 const apiKey = 'pafWZGqk8MHrstQqfclfqcJHSjDCHO9f';
-const urlGiphy = 'http://api.giphy.com/v1';
+const urlGiphy = 'https://api.giphy.com/v1';
 
 // modo nocturno
 
