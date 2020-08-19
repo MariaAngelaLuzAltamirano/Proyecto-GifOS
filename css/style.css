@@ -232,9 +232,6 @@ header #busqueda {
     grid-template-rows: repeat(6, 7.5rem);
     column-gap: 1.31rem;
     row-gap: 1.56rem; }
-    header #busqueda #nuevagrilla video {
-      width: 100%;
-      height: 100%; }
   header #busqueda input {
     display: block;
     width: 7.94rem;
@@ -254,6 +251,10 @@ header #busqueda {
     background: #572EE5;
     border-radius: 1.56rem;
     color: white; }
+  header #busqueda #img-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
 header #busqueda-sinresultado {
   display: none;
   margin: 1.69rem 0 6.25rem 0; }
@@ -274,7 +275,7 @@ header section {
     color: #572EE5;
     text-align: center;
     line-height: 30px;
-    padding: 2.87 0 0.44rem 0; }
+    padding: 2.87rem 0 0.44rem 0; }
   header section p {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
@@ -285,13 +286,14 @@ header section {
     margin-bottom: 2rem; }
   header section img {
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    object-fit: cover; }
   header section .contenedor-slider .botones-slider {
     display: none; }
   header section .contenedor-slider .contenedor-treding {
     display: flex;
     column-gap: 22px;
-    max-width: 22.5rem;
+    max-width: 16.5rem;
     height: 11.69rem;
     width: 75%;
     margin: auto;
@@ -300,9 +302,8 @@ header section {
     scroll-snap-type: x mandatory; }
     header section .contenedor-slider .contenedor-treding #contenedor-Gif-treding {
       min-width: 100%;
-      object-fit: cover;
       scroll-snap-align: center; }
-      header section .contenedor-slider .contenedor-treding #contenedor-Gif-treding img {
+      header section .contenedor-slider .contenedor-treding #contenedor-Gif-treding #fav-tred img, header section .contenedor-slider .contenedor-treding #contenedor-Gif-treding #desc-tred img, header section .contenedor-slider .contenedor-treding #contenedor-Gif-treding #max-tred img {
         visibility: hidden; }
   header section .contenedor-slider .contenedor-treding::-webkit-scrollbar {
     display: none; }
@@ -368,7 +369,7 @@ header section {
       font-size: 12px;
       color: #FFFFFF;
       padding: 0 0 1.56rem 0.5rem; }
-  .card-hover video {
+  .card-hover #img-gif-tred, .card-hover #img-gif {
     position: absolute;
     top: 0px;
     left: 0px; }
@@ -533,8 +534,8 @@ header section {
         display: flex;
         max-width: 70.625rem;
         height: 17.187rem;
-        padding-left: 0.968rem;
-        padding-right: 0.968rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
         column-gap: 1.81rem;
         margin: 0; }
         header section .contenedor-slider .contenedor-treding #contenedor-Gif-treding {
@@ -614,6 +615,10 @@ header #favoritos {
     background: #572EE5;
     border-radius: 1.562rem;
     color: white; }
+  header #favoritos #img-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
 header #favoritos-sincontenido {
   display: none;
   margin: 3.125rem 0 8.562rem 0; }
@@ -667,7 +672,7 @@ header #contenedor-gifMax {
   header #contenedor-gifMax .img-close {
     align-self: flex-end;
     margin-bottom: 1.56rem; }
-  header #contenedor-gifMax #contenedorGif video {
+  header #contenedor-gifMax #contenedorGif #img-gifMax {
     width: 19.875rem;
     height: 15.31rem; }
   header #contenedor-gifMax #contenedorGif .sub-contenedorGif {
@@ -739,7 +744,7 @@ header #contenedor-gifMax {
           fill: #FFFFFF; }
       header #contenedor-gifMax .vista-Max #contenedorGif {
         max-width: 43.437rem; }
-        header #contenedor-gifMax .vista-Max #contenedorGif video {
+        header #contenedor-gifMax .vista-Max #contenedorGif #img-gifMax {
           width: 43.437rem;
           height: 24.06rem; }
         header #contenedor-gifMax .vista-Max #contenedorGif .sub-contenedorGif {
@@ -977,6 +982,10 @@ header #misGifos {
     background: #572EE5;
     border-radius: 1.56rem;
     color: white; }
+  header #misGifos #img-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
 header #misGifos-sincontenido {
   display: none;
   margin: 3.125rem 0 8.562rem 0; }
@@ -1014,17 +1023,17 @@ header #misGifos-sincontenido {
 header #crearPrincipal {
   position: relative;
   border: 1px solid #572EE5;
-  width: 688px;
-  height: 390px;
-  margin: 104px auto 24px auto; }
+  width: 43rem;
+  height: 24.375rem;
+  margin: 6.5rem auto 1.5rem auto; }
   header #crearPrincipal .titulo1 {
-    width: 550px;
-    height: 70px;
-    font-size: 25px;
+    width: 34.375rem;
+    height: 4.375rem;
+    font-size: 1.56rem;
     color: #572EE5;
     text-align: center;
     line-height: 35px;
-    margin: 89px auto 0 auto; }
+    margin: 5.56rem auto 0 auto; }
   header #crearPrincipal span {
     color: #50E3C2; }
   header #crearPrincipal .p1 {
@@ -1033,13 +1042,13 @@ header #crearPrincipal {
     font-size: 16px;
     color: #000000;
     text-align: center;
-    line-height: 29px;
-    margin: 3px auto 78px auto; }
+    line-height: 1.81rem;
+    margin: 0.187rem auto 4.875rem auto; }
   header #crearPrincipal .bordes {
-    width: 27px;
-    height: 25px;
-    border-top: 1px solid #50E3C2;
-    border-left: 1px solid #50E3C2; }
+    width: 1.687rem;
+    height: 1.56rem;
+    border-top: 0.06rem solid #50E3C2;
+    border-left: 0.06rem solid #50E3C2; }
   header #crearPrincipal .uno {
     transform: rotate(-270deg); }
   header #crearPrincipal .dos {
@@ -1048,57 +1057,57 @@ header #crearPrincipal {
     transform: rotate(-180deg); }
   header #crearPrincipal .camara {
     position: absolute;
-    top: 150px;
-    left: -350px; }
+    top: 9.375rem;
+    left: -21.875rem; }
     header #crearPrincipal .camara #elemento1-cam {
-      width: 52px;
-      height: 52px;
-      transform: translate(120px, -130px); }
+      width: 3.25rem;
+      height: 3.25rem;
+      transform: translate(7.5rem, -8.125rem); }
     header #crearPrincipal .camara #elemento2-cam {
-      width: 70px;
-      height: 70px;
-      transform: translate(118px, -130px); }
+      width: 4.375rem;
+      height: 4.375rem;
+      transform: translate(7.375rem, -8.125rem); }
     header #crearPrincipal .camara #elemento3-cam {
-      width: 123px;
-      height: 162px; }
+      width: 7.687rem;
+      height: 1.125rem; }
     header #crearPrincipal .camara #elemento4-cam {
-      width: 91px;
-      height: 151px;
-      transform: translate(-2.5px, -35px); }
+      width: 5.687rem;
+      height: 9.437rem;
+      transform: translate(-0.156rem -2.187rem); }
   header #crearPrincipal #elemento5-cam {
     position: absolute;
-    top: 370px;
-    left: 750px;
-    width: 142px;
-    height: 88px; }
+    top: 34.375rem;
+    left: 46.875rem;
+    width: 8.875rem;
+    height: 5.5rem; }
 header #botones-pag {
-  width: 147px;
-  margin: 0 auto 19px auto;
+  width: 9.187rem;
+  margin: 0 auto 1.187rem auto;
   display: flex;
   justify-content: space-between; }
   header #botones-pag div {
-    width: 32px;
-    height: 32px;
-    border: 1px solid #572EE5;
-    border-radius: 32px;
+    width: 2rem;
+    height: 2rem;
+    border: 0.06rem solid #572EE5;
+    border-radius: 2rem;
     font-size: 18px;
     color: #572EE5;
     text-align: center;
-    padding-top: 6px; }
+    padding-top: 0.5rem; }
   header #botones-pag div:hover {
     background: #572EE5;
-    border-radius: 25px;
+    border-radius: 1.56rem;
     color: white; }
 header .lineaCGif {
-  width: 795.9px;
-  height: 6.9px;
+  width: 49.75rem;
+  height: 0.437rem;
   background: #572EE5;
   margin: auto;
-  border-radius: 6.9px; }
+  border-radius: 0.437rem; }
 header #comenzar {
   display: block;
-  width: 127px;
-  height: 50px;
+  width: 7.937rem;
+  height: 3.125rem;
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 13px;
@@ -1107,12 +1116,12 @@ header #comenzar {
   outline: none;
   letter-spacing: 0;
   text-align: center;
-  border: 1px solid #572EE5;
-  border-radius: 25px;
-  margin: 20.1px auto 26px auto; }
+  border: 0.06rem solid #572EE5;
+  border-radius: 1.56rem;
+  margin: 1.25rem auto 1.62rem auto; }
 header #comenzar:hover {
   background: #572EE5;
-  border-radius: 25px;
+  border-radius: 1.56rem;
   color: white; }
 
 /*# sourceMappingURL=style.css.map */

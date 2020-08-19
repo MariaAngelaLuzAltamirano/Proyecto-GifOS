@@ -17,8 +17,8 @@ let gifFavoritos = JSON.parse(localStorage.getItem("favoritos"));
 let btnVerMasFav = document.getElementById('verMas-favoritos');
 let contadorVermasFav = 12;
 //div contenedor de Gifs
-let divVideo = document.getElementById('contenedor-Gif');
-let dataVideo = document.getElementById('video-gif');
+let divImg = document.getElementById('contenedor-Gif');
+let dataImg = document.getElementById('img-gif');
 let pCard = document.getElementById('usuario');
 let h6Card = document.getElementById('tituloGif');
 let divLinks = document.getElementById('linksGif');
@@ -33,7 +33,7 @@ let maxCard = document.getElementById('max');
 //maximizar/minimizar Gifs
 let pagPrincipal = document.getElementById('pagPrincipal');
 let divMaxGif = document.getElementById('contenedor-gifMax');
-let dataVideoMax = document.getElementById('video-gifMax');
+let dataImgMax = document.getElementById('img-gifMax');
 let btnSliderIzqGifMax = document.getElementById('boton-izqGifMax');
 let btnSliderDerGifMax = document.getElementById('boton-derGifMax');
 let idCardMax;
@@ -46,8 +46,8 @@ let h6CardMax = document.getElementById('tituloGifMax');
 let slider = document.getElementById('slider');
 let siguiente = document.getElementById('next');
 let anterior = document.getElementById('prev');
-let divVideoTred = document.getElementById('contenedor-Gif-treding');
-let dataVideoTred = document.getElementById('video-gif-tred');
+let divImgTred = document.getElementById('contenedor-Gif-treding');
+let dataImgTred = document.getElementById('img-gif-tred');
 let pCardTred = document.getElementById('usuario-tred');
 let h6CardTred = document.getElementById('tituloGif-tred');
 let divLinksTred = document.getElementById('linksGif-treding');
@@ -84,10 +84,10 @@ btnVerMasFav.addEventListener('click', () =>{
     // nuevaGrilla.style.marginTop = "1.75rem";
     grillaFav.style.marginBottom = "0px";
     for (var i = contadorVermasFav ; i < (gifFavoritos.length- is_negative_number((gifFavoritos.length-(contadorVermasFav+12)))); i++) {
-        divVideo.innerHTML= '';
+        divImg.innerHTML= '';
         crearElemento(gifFavoritos, i);
-        divVideo.classList.add('card-hover');
-        nuevaGrilla.appendChild(divVideo.cloneNode(true));
+        divImg.classList.add('card-hover');
+        nuevaGrilla.appendChild(divImg.cloneNode(true));
     }
     if(gifFavoritos.length < (contadorVermasFav +12)){
         btnVerMasFav.style.display = 'none';
@@ -129,12 +129,12 @@ function cargaFav() {
         if(gifFavoritos.length <= 12){
             btnVerMasFav.style.display = 'none';
             for (var i = 0; i < gifFavoritos.length ; i++) {
-                divVideo.innerHTML= '';
+                divImg.innerHTML= '';
                 crearElemento(gifFavoritos, i);
-                divVideo.classList.add('card-hover');
-                grillaFav.appendChild(divVideo.cloneNode(true));
+                divImg.classList.add('card-hover');
+                grillaFav.appendChild(divImg.cloneNode(true));
             }
-            grillaFav.removeChild(divVideo);
+            grillaFav.removeChild(divImg);
             for (var i = gifFavoritos.length; i < 12; i++) {
                 let imgRelleno = document.createElement('img');
                 imgRelleno.src = 'assets/grilla-sinfavoritos.svg';
@@ -148,12 +148,12 @@ function cargaFav() {
             }
         }else{
             for (var i = 0; i < 12; i++) {
-                divVideo.innerHTML= '';
+                divImg.innerHTML= '';
                 crearElemento(gifFavoritos, i);
-                divVideo.classList.add('card-hover');
-                grillaFav.appendChild(divVideo.cloneNode(true));
+                divImg.classList.add('card-hover');
+                grillaFav.appendChild(divImg.cloneNode(true));
             }
-            grillaFav.removeChild(divVideo);
+            grillaFav.removeChild(divImg);
             btnVerMasFav.style.display = 'block';
         }
 
@@ -166,7 +166,7 @@ function crearElemento(d, i){
     favCard.dataset.id= i;
     descCard.dataset.id= i;
     maxCard.dataset.id= i;
-    divVideo.appendChild(divLinks.cloneNode(true));
+    divImg.appendChild(divLinks.cloneNode(true));
 
     //Usuario Gif
     pCard.innerHTML= '';
@@ -180,15 +180,15 @@ function crearElemento(d, i){
     h6Card.appendChild(textTit);
     divTextos.appendChild(h6Card);
 
-    divVideo.appendChild(divTextos);
+    divImg.appendChild(divTextos);
     
-    //video Gif
-    dataVideo.src = datos.images.original.mp4;
-    dataVideo.style.width = "100%";
-    dataVideo.style.height = "100%";
-    dataVideo.autoplay ="true";
-    dataVideo.loop = "true";
-    divVideo.appendChild(dataVideo);
+    // Gif
+    dataImg.src = datos.images.original.url;
+    // dataImg.style.width = "100%";
+    // dataImg.style.height = "100%";
+    // dataImg.autoplay ="true";
+    // dataImg.loop = "true";
+    divImg.appendChild(dataImg);
 }
 
 
@@ -424,7 +424,7 @@ function maximizarGif(gifId, arrayGifs){
     favCardMax.dataset.id= idCardMax;
     descCardMax.dataset.id= idCardMax;
     let gif= arrayGifsSlider[idCardMax];
-    dataVideoMax.src = gif.images.original.mp4;
+    dataImgMax.src = gif.images.original.url;
     h6CardMax.innerHTML= '';
     textTit = document.createTextNode(gif.title.substring(0,25));
     h6CardMax.appendChild(textTit);
@@ -468,7 +468,7 @@ function movimientoSlider(){
     favCardMax.dataset.id= idCardMax;
     descCardMax.dataset.id= idCardMax;
     let gif= arrayGifsSlider[idCardMax];
-    dataVideoMax.src = gif.images.original.mp4;
+    dataImgMax.src = gif.images.original.url;
     h6CardMax.innerHTML= '';
     textTit = document.createTextNode(gif.title.substring(0,25));
     h6CardMax.appendChild(textTit);
@@ -537,13 +537,13 @@ function insertaGifTreding(){
 
     topTreding.then(data => {
         for (var i = 0; i < 6; i++) {
-            divVideoTred.innerHTML= '';
+            divImgTred.innerHTML= '';
             let datos = data.data[i];
             //links GIF
             favCardTred.dataset.id= i;
             descCardTred.dataset.id= i;
             maxCardTred.dataset.id= i;
-            divVideoTred.appendChild(divLinksTred.cloneNode(true));
+            divImgTred.appendChild(divLinksTred.cloneNode(true));
         
             //Usuario Gif
             pCardTred.innerHTML= '';
@@ -557,21 +557,21 @@ function insertaGifTreding(){
             h6CardTred.appendChild(textTit);
             divTextosTred.appendChild(h6CardTred);
         
-            divVideoTred.appendChild(divTextosTred);
+            divImgTred.appendChild(divTextosTred);
         
-            //video Gif
-            dataVideoTred.src = datos.images.original.mp4;
-            dataVideoTred.style.width = "100%";
-            dataVideoTred.style.height = "100%";
-            dataVideoTred.autoplay ="true";
-            dataVideoTred.loop = "true";
-            divVideoTred.appendChild(dataVideoTred);
-            divVideoTred.classList.add('card-hover');
-            slider.appendChild(divVideoTred.cloneNode(true));
+            // Gif
+            dataImgTred.src = datos.images.original.url;
+            // dataImgTred.style.width = "100%";
+            // dataImgTred.style.height = "100%";
+            // dataImgTred.autoplay ="true";
+            // dataImgTred.loop = "true";
+            divImgTred.appendChild(dataImgTred);
+            divImgTred.classList.add('card-hover');
+            slider.appendChild(divImgTred.cloneNode(true));
             gifTendencias.push(data.data[i]);
 
         }
-        slider.removeChild(divVideoTred);
+        slider.removeChild(divImgTred);
         // for (var i = 0; i < 6; i++) {
         //     idCardTred = i;
         //     favCardMax.dataset.id= idCardMax;
