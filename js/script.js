@@ -99,7 +99,7 @@ let gifTendencias= [];
 //modo nocturno
 btnNocturno.addEventListener('click', () =>{
 
-    if(html.className != 'modo-nocturno'){
+    if(!html.classList.contains('modo-nocturno')){
         html.classList.add('modo-nocturno');
         btnNocturno.textContent = 'Modo Diurno';
     }else{
@@ -340,7 +340,7 @@ pSug1.addEventListener('click', ()=>{
     btnClose.style.display = 'block';
     btnVerMas.style.display = 'block';
     buscarGifs(pSug1.textContent);
-    agregarEstilosBusq();
+    agregarEstilosSug();
     contadorVermas = 12;
 })
 
@@ -352,7 +352,7 @@ pSug2.addEventListener('click', ()=>{
     btnClose.style.display = 'block';
     btnVerMas.style.display = 'block';
     buscarGifs(pSug2.textContent);
-    agregarEstilosBusq();
+    agregarEstilosSug();
     contadorVermas = 12;
 })
 
@@ -364,7 +364,7 @@ pSug3.addEventListener('click', ()=>{
     btnClose.style.display = 'block';
     btnVerMas.style.display = 'block';
     buscarGifs(pSug3.textContent);
-    agregarEstilosBusq();
+    agregarEstilosSug();
     contadorVermas = 12;
 })
 
@@ -376,7 +376,7 @@ pSug4.addEventListener('click', ()=>{
     btnClose.style.display = 'block';
     btnVerMas.style.display = 'block';
     buscarGifs(pSug4.textContent);
-    agregarEstilosBusq();
+    agregarEstilosSug();
     contadorVermas = 12;
 })
 
@@ -672,6 +672,22 @@ function estilosComunes(){
     imgSug0.style.display = "block";
     imgSug0.style.marginRight = "0.91rem";
     sugerencias.style.display = "flex";
+}
+
+function agregarEstilosSug(){
+    if(mediaqueryList.matches == true){
+        busqueda.style.display = "block";
+        tituloTred.style.display = "none";
+        btnVerMas.style.marginTop = "4.87rem";
+    }else{
+        busqueda.style.display = "block";
+        tituloTred.style.display = "block";
+        tituloH1.style.display = "none";
+        dibujo.style.display = "none";
+        barraBusq.style.width = "17.44rem";
+        contenedorBusq.style.marginTop = "7.75rem";
+        btnVerMas.style.marginTop = "4.87rem";
+    }
 }
 
 function busquedaNav(){

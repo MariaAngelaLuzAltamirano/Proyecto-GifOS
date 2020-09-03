@@ -66,16 +66,16 @@ let gifFavoritos = JSON.parse(localStorage.getItem("favoritos"));
 
 btnNocturno.addEventListener('click', () =>{
 
-    if(html.className != 'modo-nocturno'){
+    if(!html.classList.contains('modo-nocturno')){
         html.classList.add('modo-nocturno');
         btnNocturno.textContent = 'Modo Diurno';
     }else{
         html.classList.remove('modo-nocturno');
         btnNocturno.textContent = 'Modo Nocturno';
-
     }
 
 });
+
 
 btnVerMasMisGifos.addEventListener('click', () =>{
     nuevaGrilla = document.createElement('div');

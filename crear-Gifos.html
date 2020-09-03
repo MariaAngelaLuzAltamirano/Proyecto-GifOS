@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>    
 </head>
 <body>
     <header>
@@ -45,7 +46,7 @@
                         <div></div>
                         <li><a href="mis-gifos.html" id="mis-gifos" >Mis GifOS</a></li>
                     </ul>
-                    <div class="crear-Gifos" class="misGifos-activo">
+                    <div class="crearGifos-activo">
                         <a href="crear-Gifos.html">
                             <span></span>
                             <span></span>
@@ -56,25 +57,49 @@
         </nav>
         <div>
             <div id="crearPrincipal">
-                <div style="display: flex; justify-content: space-between; margin: 20px 20px 0 20px;">
+                <div class="bordesSup">
                     <div class="bordes"></div>
                     <div class="bordes uno"></div>
                 </div>
-                <div>
+                <div id="crear1">
                     <h1 class="titulo1">Aquí podrás <br>crear tus propios <span>GIFOS</span></h1>
                     <p class="p1">¡Crea tu GIFO en sólo 3 pasos!<br>(sólo necesitas una cámara para grabar un video)</p>
                 </div>
-                <div style="display: flex; justify-content: space-between; margin: 0 20px 20px 20px;">                
+                <div id="crear2">
+                    <h1 class="titulo1">¿Nos das acceso <br>a tu cámara?</h1>
+                    <p class="p1">El acceso a tu camara será válido sólo <br>por el tiempo en el que estés creando el GIFO.</p>
+                </div>
+                <div id="crear3">
+                    <video id="videoGif" src=""></video>
+                    <img id="previewGif" src="" alt="">
+                    <div id="subiendoGif">
+                        <img src="assets/loader.svg" alt="">
+                        <p>Estamos subiendo tu GIFO</p>
+                    </div>
+                    <div id="gifSubido">
+                        <div>
+                            <a id= "desc"><img download= "descarga.gif" src="assets/icon-download.svg" alt=""></a>
+                            <a id= "link" href=""><img src="assets/icon-link.svg" alt=""></a>
+                        </div>
+                        <img src="assets/check.svg" alt="">
+                        <p>GIFO subido con éxito</p>
+                    </div>
+                </div>
+                <div class="bordesInf">                
                     <div class="bordes dos"></div>
                     <div class="bordes tres"></div>
                 </div>
-                <div class="camara">
+                <div class="dibujoCamara">
                     <img id="elemento1-cam" src="assets/element_cinta1.svg" alt="camara">
                     <img id="elemento2-cam" src="assets/element_cinta2.svg" alt="camara">
                     <img id="elemento3-cam" src="assets/element-camara.svg" alt="camara">
                     <img id="elemento4-cam" src="assets/element-luz-camara.svg" alt="camara">
                 </div>
                 <img id="elemento5-cam" src="assets/pelicula.svg" alt="">
+                <div id="contadorGrab">
+                    <div id="contador">00:00:00</div>
+                    <div id="repetirCap">REPETIR CAPTURA</div>
+                </div>
             </div>
             <div id="botones-pag">
                 <div>1</div>
@@ -82,7 +107,10 @@
                 <div>3</div>
             </div>
             <div class="lineaCGif"></div>
-            <input type="submit" value="COMENZAR" id="comenzar">
+            <button id="comenzar">COMENZAR</button>
+            <button id="grabar">GRABAR</button>
+            <button id="finalizar">FINALIZAR</button>
+            <button id="subirGifo">SUBIR GIFO</button>
         </div>
     </header>
     <footer>
@@ -102,10 +130,9 @@
         </div>
         <p class="copyright">© GIFOS 2020 All Rights Reserved.</p>
     </footer>
-    <script src="js/crearGifos.js"></script>
-    <script>
+    <script src="js/crearGifos.js">
         document.cookie = 'same-site-cookie=foo; SameSite=Lax'; 
         document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
-    </script>    
+    </script>
 </body>
 </html>

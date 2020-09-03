@@ -67,16 +67,16 @@ let gifTendencias= [];
 
 btnNocturno.addEventListener('click', () =>{
 
-    if(html.className != 'modo-nocturno'){
+    if(!html.classList.contains('modo-nocturno')){
         html.classList.add('modo-nocturno');
         btnNocturno.textContent = 'Modo Diurno';
     }else{
         html.classList.remove('modo-nocturno');
         btnNocturno.textContent = 'Modo Nocturno';
-
     }
 
 });
+
 
 btnVerMasFav.addEventListener('click', () =>{
     nuevaGrilla = document.createElement('div');
@@ -184,10 +184,6 @@ function crearElemento(d, i){
     
     // Gif
     dataImg.src = datos.images.original.url;
-    // dataImg.style.width = "100%";
-    // dataImg.style.height = "100%";
-    // dataImg.autoplay ="true";
-    // dataImg.loop = "true";
     divImg.appendChild(dataImg);
 }
 
@@ -561,10 +557,6 @@ function insertaGifTreding(){
         
             // Gif
             dataImgTred.src = datos.images.original.url;
-            // dataImgTred.style.width = "100%";
-            // dataImgTred.style.height = "100%";
-            // dataImgTred.autoplay ="true";
-            // dataImgTred.loop = "true";
             divImgTred.appendChild(dataImgTred);
             divImgTred.classList.add('card-hover');
             slider.appendChild(divImgTred.cloneNode(true));

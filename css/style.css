@@ -673,8 +673,9 @@ header #contenedor-gifMax {
     align-self: flex-end;
     margin-bottom: 1.56rem; }
   header #contenedor-gifMax #contenedorGif #img-gifMax {
-    width: 19.875rem;
-    height: 15.31rem; }
+    width: 100%;
+    height: 15.31rem;
+    object-fit: cover; }
   header #contenedor-gifMax #contenedorGif .sub-contenedorGif {
     display: flex;
     justify-content: space-between;
@@ -743,10 +744,11 @@ header #contenedor-gifMax {
         header #contenedor-gifMax .vista-Max .botones-slider:hover svg path {
           fill: #FFFFFF; }
       header #contenedor-gifMax .vista-Max #contenedorGif {
-        max-width: 43.437rem; }
+        min-width: 43.437rem; }
         header #contenedor-gifMax .vista-Max #contenedorGif #img-gifMax {
-          width: 43.437rem;
-          height: 24.06rem; }
+          width: 100%;
+          height: 24.06rem;
+          object-fit: cover; }
         header #contenedor-gifMax .vista-Max #contenedorGif .sub-contenedorGif {
           padding-top: 1.687rem; }
           header #contenedor-gifMax .vista-Max #contenedorGif .sub-contenedorGif #linksGifMax {
@@ -925,6 +927,26 @@ footer {
     color: black;
     background: #FFFFFF;
     border-radius: 1.562rem; }
+  .modo-nocturno body header #crear1 .titulo1, .modo-nocturno body header #crear1 p, .modo-nocturno body header #crear2 .titulo1, .modo-nocturno body header #crear2 p {
+    color: white; }
+  .modo-nocturno body header #botones-pag div {
+    background: #37383C;
+    color: white;
+    border: 0.06rem solid #FFFFFF; }
+  .modo-nocturno body header #botones-pag div:hover {
+    color: black;
+    background: #FFFFFF;
+    border-radius: 1.562rem; }
+  .modo-nocturno body header #comenzar {
+    background: #37383C;
+    color: white;
+    border: 0.06rem solid #FFFFFF; }
+  .modo-nocturno body header #comenzar:hover {
+    color: black;
+    background: #FFFFFF;
+    border-radius: 1.562rem; }
+  .modo-nocturno body header #contador, .modo-nocturno body header #repetirCap {
+    color: #FFFFFF; }
   .modo-nocturno body footer {
     border-bottom: 5px solid #000000; }
     .modo-nocturno body footer .compartir p {
@@ -1020,12 +1042,58 @@ header #misGifos-sincontenido {
     margin-bottom: 2.187rem; }
   header #misGifos-sincontenido {
     margin-top: 8.5rem; } }
+header .contenedor-menu .crearGifos-activo {
+  display: block;
+  border: 1px solid #9CAFC3;
+  background: #9CAFC3;
+  border-radius: 1.687rem;
+  height: 3.375rem;
+  width: 3.375rem;
+  border-radius: 1.687rem;
+  margin: 1.125rem 0 0 3.31rem; }
+  header .contenedor-menu .crearGifos-activo a {
+    display: flex;
+    justify-content: center; }
+    header .contenedor-menu .crearGifos-activo a span {
+      margin-top: 1.625rem;
+      width: 1rem;
+      height: 0.125rem;
+      background-color: white; }
+    header .contenedor-menu .crearGifos-activo a :last-child {
+      position: absolute;
+      height: 1rem;
+      width: 0.125rem;
+      margin-top: 1.187rem; }
 header #crearPrincipal {
   position: relative;
   border: 1px solid #572EE5;
   width: 43rem;
-  height: 24.375rem;
+  height: 25.8rem;
   margin: 6.5rem auto 1.5rem auto; }
+  header #crearPrincipal #crear1 {
+    display: block; }
+  header #crearPrincipal #crear2 {
+    display: none; }
+  header #crearPrincipal #crear3 {
+    display: none;
+    margin: auto;
+    width: 480px;
+    height: 320px;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; }
+    header #crearPrincipal #crear3 #videoGif {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%; }
+    header #crearPrincipal #crear3 #previewGif {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%; }
   header #crearPrincipal .titulo1 {
     width: 34.375rem;
     height: 4.375rem;
@@ -1043,7 +1111,15 @@ header #crearPrincipal {
     color: #000000;
     text-align: center;
     line-height: 1.81rem;
-    margin: 0.187rem auto 4.875rem auto; }
+    margin: 0.187rem auto 6.5rem auto; }
+  header #crearPrincipal .bordesSup {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 20px 0 20px; }
+  header #crearPrincipal .bordesInf {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px 20px 20px; }
   header #crearPrincipal .bordes {
     width: 1.687rem;
     height: 1.56rem;
@@ -1055,28 +1131,97 @@ header #crearPrincipal {
     transform: rotate(-90deg); }
   header #crearPrincipal .tres {
     transform: rotate(-180deg); }
-  header #crearPrincipal .camara {
+  header #crearPrincipal .contenedor-camaraActiva::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #572EE5;
+    opacity: 0.6;
+    z-index: 1;
+    position: absolute; }
+  header #crearPrincipal #subiendoGif {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    width: 100%;
+    height: 100%; }
+    header #crearPrincipal #subiendoGif img {
+      width: 22px;
+      height: 22px; }
+    header #crearPrincipal #subiendoGif p {
+      font-size: 15px;
+      color: #FFFFFF;
+      text-align: center;
+      font-weight: 900;
+      margin-top: 10px; }
+  header #crearPrincipal #gifSubido {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    position: relative; }
+    header #crearPrincipal #gifSubido img {
+      width: 24px;
+      height: 24px; }
+    header #crearPrincipal #gifSubido p {
+      font-size: 15px;
+      color: #FFFFFF;
+      text-align: center;
+      font-weight: 900;
+      margin-top: 10px; }
+    header #crearPrincipal #gifSubido div {
+      display: flex;
+      padding: 0.687rem 0.75rem 0 0;
+      width: 5.375rem;
+      justify-content: space-between;
+      align-self: flex-end;
+      position: absolute;
+      top: 0; }
+      header #crearPrincipal #gifSubido div a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.7;
+        background: #FFFFFF;
+        border-radius: 0.375rem;
+        width: 2rem;
+        height: 2rem;
+        z-index: 2; }
+      header #crearPrincipal #gifSubido div #desc img {
+        height: 1.125rem;
+        width: 1rem; }
+      header #crearPrincipal #gifSubido div #link {
+        opacity: 1; }
+        header #crearPrincipal #gifSubido div #link img {
+          height: 1.25rem;
+          width: 1.25rem; }
+  header #crearPrincipal .dibujoCamara {
     position: absolute;
     top: 9.375rem;
     left: -21.875rem; }
-    header #crearPrincipal .camara #elemento1-cam {
+    header #crearPrincipal .dibujoCamara #elemento1-cam {
       width: 3.25rem;
       height: 3.25rem;
       transform: translate(7.5rem, -8.125rem); }
-    header #crearPrincipal .camara #elemento2-cam {
+    header #crearPrincipal .dibujoCamara #elemento2-cam {
       width: 4.375rem;
       height: 4.375rem;
       transform: translate(7.375rem, -8.125rem); }
-    header #crearPrincipal .camara #elemento3-cam {
+    header #crearPrincipal .dibujoCamara #elemento3-cam {
       width: 7.687rem;
-      height: 1.125rem; }
-    header #crearPrincipal .camara #elemento4-cam {
+      height: 10.125rem; }
+    header #crearPrincipal .dibujoCamara #elemento4-cam {
       width: 5.687rem;
       height: 9.437rem;
-      transform: translate(-0.156rem -2.187rem); }
+      transform: translate(-0.156rem, -2.187rem); }
   header #crearPrincipal #elemento5-cam {
     position: absolute;
-    top: 34.375rem;
+    top: 23.125rem;
     left: 46.875rem;
     width: 8.875rem;
     height: 5.5rem; }
@@ -1093,18 +1238,42 @@ header #botones-pag {
     font-size: 18px;
     color: #572EE5;
     text-align: center;
-    padding-top: 0.5rem; }
+    padding-top: 0.3rem; }
   header #botones-pag div:hover {
     background: #572EE5;
     border-radius: 1.56rem;
     color: white; }
+header .btn-activos {
+  background: #572EE5;
+  color: white !important; }
+header #contadorGrab {
+  position: absolute;
+  top: 27.25rem;
+  left: 34.875rem;
+  width: 131px;
+  font-weight: 900; }
+  header #contadorGrab :first-child {
+    display: none;
+    font-size: 15px;
+    color: #572EE5;
+    letter-spacing: 0;
+    text-align: right;
+    line-height: 22px; }
+  header #contadorGrab :last-child {
+    display: none;
+    font-size: 13px;
+    color: #572EE5;
+    letter-spacing: 0;
+    text-align: center;
+    border-bottom: 2px solid #5ED7C6;
+    cursor: pointer; }
 header .lineaCGif {
   width: 49.75rem;
   height: 0.437rem;
   background: #572EE5;
   margin: auto;
   border-radius: 0.437rem; }
-header #comenzar {
+header button {
   display: block;
   width: 7.937rem;
   height: 3.125rem;
@@ -1119,9 +1288,16 @@ header #comenzar {
   border: 0.06rem solid #572EE5;
   border-radius: 1.56rem;
   margin: 1.25rem auto 1.62rem auto; }
-header #comenzar:hover {
+header button:hover {
   background: #572EE5;
   border-radius: 1.56rem;
-  color: white; }
+  color: white;
+  cursor: pointer; }
+header #grabar {
+  display: none; }
+header #finalizar {
+  display: none; }
+header #subirGifo {
+  display: none; }
 
 /*# sourceMappingURL=style.css.map */
