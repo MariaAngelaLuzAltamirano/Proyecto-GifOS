@@ -211,16 +211,11 @@ function desplaza() {
     clearTimeout(tiempo); 
     tiempo = setTimeout(oculta, 400); 
     document.querySelector("nav").className = "aparece";
-    if(document.getElementById('pagPrincipal').offsetTop > 10 && mediaqueryList.matches){
-    document.getElementsByClassName('contenedor-barra-busq-nav')[0].style.display='flex';
-    }
 }
 
 function oculta() {
   if((document.documentElement.scrollTop || self.pageYOffset) != 0) {
   document.querySelector("nav").className = "desaparece"; 
-  }else{
-    document.getElementsByClassName('contenedor-barra-busq-nav')[0].style.display='none';
   }
 }
 

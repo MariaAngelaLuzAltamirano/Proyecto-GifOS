@@ -427,15 +427,15 @@ header section {
         width: 3.375rem;
         border-radius: 1.687rem;
         margin: 1.125rem 0 0 3.31rem; }
-        header nav .barra-superior .contenedor-menu .crear-Gifos a {
+        header nav .barra-superior .contenedor-menu .crear-Gifos div {
           display: flex;
           justify-content: center; }
-          header nav .barra-superior .contenedor-menu .crear-Gifos a span {
+          header nav .barra-superior .contenedor-menu .crear-Gifos div span {
             margin-top: 1.625rem;
             width: 1rem;
             height: 0.125rem;
             background-color: #572EE5; }
-          header nav .barra-superior .contenedor-menu .crear-Gifos a :last-child {
+          header nav .barra-superior .contenedor-menu .crear-Gifos div :last-child {
             position: absolute;
             height: 1rem;
             width: 0.125rem;
@@ -1051,15 +1051,15 @@ header .contenedor-menu .crearGifos-activo {
   width: 3.375rem;
   border-radius: 1.687rem;
   margin: 1.125rem 0 0 3.31rem; }
-  header .contenedor-menu .crearGifos-activo a {
+  header .contenedor-menu .crearGifos-activo div {
     display: flex;
     justify-content: center; }
-    header .contenedor-menu .crearGifos-activo a span {
+    header .contenedor-menu .crearGifos-activo div span {
       margin-top: 1.625rem;
       width: 1rem;
       height: 0.125rem;
       background-color: white; }
-    header .contenedor-menu .crearGifos-activo a :last-child {
+    header .contenedor-menu .crearGifos-activo div :last-child {
       position: absolute;
       height: 1rem;
       width: 0.125rem;
@@ -1115,11 +1115,11 @@ header #crearPrincipal {
   header #crearPrincipal .bordesSup {
     display: flex;
     justify-content: space-between;
-    margin: 20px 20px 0 20px; }
+    margin: 1.25rem 1.25rem 0 1.25rem; }
   header #crearPrincipal .bordesInf {
     display: flex;
     justify-content: space-between;
-    margin: 0 20px 20px 20px; }
+    margin: 0 1.25rem 1.25rem 1.25rem; }
   header #crearPrincipal .bordes {
     width: 1.687rem;
     height: 1.56rem;
@@ -1148,8 +1148,8 @@ header #crearPrincipal {
     width: 100%;
     height: 100%; }
     header #crearPrincipal #subiendoGif img {
-      width: 22px;
-      height: 22px; }
+      width: 1.375rem;
+      height: 1.375rem; }
     header #crearPrincipal #subiendoGif p {
       font-size: 15px;
       color: #FFFFFF;
@@ -1166,14 +1166,14 @@ header #crearPrincipal {
     height: 100%;
     position: relative; }
     header #crearPrincipal #gifSubido img {
-      width: 24px;
-      height: 24px; }
+      width: 1.5rem;
+      height: 1.5rem; }
     header #crearPrincipal #gifSubido p {
       font-size: 15px;
       color: #FFFFFF;
       text-align: center;
       font-weight: 900;
-      margin-top: 10px; }
+      margin-top: 0.625rem; }
     header #crearPrincipal #gifSubido div {
       display: flex;
       padding: 0.687rem 0.75rem 0 0;
@@ -1250,7 +1250,7 @@ header #contadorGrab {
   position: absolute;
   top: 27.25rem;
   left: 34.875rem;
-  width: 131px;
+  width: 8.187rem;
   font-weight: 900; }
   header #contadorGrab :first-child {
     display: none;

@@ -191,6 +191,7 @@ function subirGifo(form){
     fetch(`https://upload.giphy.com/v1/gifs?api_key=${apiKey}`, {
         method: "POST",
         body: form,
+        mode: 'no-cors'
     })
     .then(response => {
         let data = response.json();

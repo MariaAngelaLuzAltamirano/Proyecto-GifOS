@@ -116,9 +116,10 @@ btnSearch.addEventListener('click', () =>{
     agregarEstilosBusq();
     btnSearch.style.display = 'none';
     btnClose.style.display = 'block';
+    sugerencias.style.display = "none";
+    contenedorBusq.style.height = "3.12rem";
+    imgSug0.style.display = "none";
     contador = 1;
-    //funcion mostrar Sugerencias
-    mostrarSugerencias();
     //funcion busqueda GIFS
     keyword = inputBusq.value
     buscarGifs(keyword);
@@ -158,27 +159,27 @@ btnCloseNav.addEventListener('click', () =>{
 })
 
 //EVALUAR CAMBIO DE PANTALLA
-window.addEventListener('resize', () =>{
-    if(contador == 1){
-        if(mediaqueryList.matches){
-            tituloTred.style.display = "none";
-            tituloH1.style.display = "block";
-            dibujo.style.display = "block";
-            estilosComunes();
-            barraBusq.style.width = "29.81rem";
-        }else{
-            tituloTred.style.display = "block";
-            tituloH1.style.display = "none";
-            dibujo.style.display = "none";
-            contenedorBusq.style.marginTop = "7.75rem";
-            imgSug0.style.display = "block";
-            imgSug0.style.marginRight = "0.91rem";
-            // contenedorBusq.style.height = "3.12rem";
-            sugerencias.style.display = "flex";
-            barraBusq.style.width = "16.87rem";
-        }
-    }
-} );
+// window.addEventListener('resize', () =>{
+//     if(contador == 1){
+//         if(mediaqueryList.matches){
+//             tituloTred.style.display = "none";
+//             tituloH1.style.display = "block";
+//             dibujo.style.display = "block";
+//             estilosComunes();
+//             barraBusq.style.width = "29.81rem";
+//         }else{
+//             tituloTred.style.display = "block";
+//             tituloH1.style.display = "none";
+//             dibujo.style.display = "none";
+//             contenedorBusq.style.marginTop = "7.75rem";
+//             imgSug0.style.display = "block";
+//             imgSug0.style.marginRight = "0.91rem";
+//             // contenedorBusq.style.height = "3.12rem";
+//             sugerencias.style.display = "flex";
+//             barraBusq.style.width = "16.87rem";
+//         }
+//     }
+// } );
 
 
 btnVerMas.addEventListener('click', () =>{
@@ -339,6 +340,7 @@ pSug1.addEventListener('click', ()=>{
     btnSearch.style.display = 'none';
     btnClose.style.display = 'block';
     btnVerMas.style.display = 'block';
+    sugerencias.style.display = "none";
     buscarGifs(pSug1.textContent);
     agregarEstilosSug();
     contadorVermas = 12;
@@ -351,6 +353,7 @@ pSug2.addEventListener('click', ()=>{
     btnSearch.style.display = 'none';
     btnClose.style.display = 'block';
     btnVerMas.style.display = 'block';
+    sugerencias.style.display = "none";
     buscarGifs(pSug2.textContent);
     agregarEstilosSug();
     contadorVermas = 12;
@@ -363,6 +366,7 @@ pSug3.addEventListener('click', ()=>{
     btnSearch.style.display = 'none';
     btnClose.style.display = 'block';
     btnVerMas.style.display = 'block';
+    sugerencias.style.display = "none";
     buscarGifs(pSug3.textContent);
     agregarEstilosSug();
     contadorVermas = 12;
@@ -375,6 +379,7 @@ pSug4.addEventListener('click', ()=>{
     btnSearch.style.display = 'none';
     btnClose.style.display = 'block';
     btnVerMas.style.display = 'block';
+    sugerencias.style.display = "none";
     buscarGifs(pSug4.textContent);
     agregarEstilosSug();
     contadorVermas = 12;
@@ -506,6 +511,7 @@ function crearElemento(d, i){
     let datos = d.data[i];
     //links GIF
     favCard.dataset.id= i;
+    comprobarFavorito(datos.id, favCard);
     descCard.dataset.id= i;
     maxCard.dataset.id= i;
     divImg.appendChild(divLinks.cloneNode(true));
@@ -894,7 +900,7 @@ function maximizarGif(gifId, arrayGifs){
     pCardMax.innerHTML= '';
     textUser = document.createTextNode(gif.username);
     pCardMax.appendChild(textUser);
-    comprobarFavorito(idCardMax, favCardMax, arrayGifsSlider);
+    comprobarFavoritoSlider(idCardMax, favCardMax, arrayGifsSlider);
     scrollBy(0,-200);
 }
 
@@ -904,7 +910,7 @@ function minimizarGif(){
     localStorage.setItem('favoritos', JSON.stringify(gifFavoritos));
 }
 
-function comprobarFavorito(id, info, arrayGifs){
+function comprobarFavoritoSlider(id, info, arrayGifs){
     console.log(info);
     let gif = arrayGifs[id];
     let idGif = gif.id;
@@ -938,7 +944,7 @@ function movimientoSlider(){
     pCardMax.innerHTML= '';
     textUser = document.createTextNode(gif.username);
     pCardMax.appendChild(textUser);
-    comprobarFavorito(idCardMax, favCardMax, arrayGifsSlider);
+    comprobarFavoritoSlider(idCardMax, favCardMax, arrayGifsSlider);
 }
 //treding
 function slidering(){
@@ -1002,15 +1008,16 @@ function insertaGifTreding(){
 
     url = `${urlGiphy}/gifs/trending?api_key=${apiKey}&limit=6&offset=0`;
     let topTreding = conexionApi(url);
+    gifFavoritos = JSON.parse(localStorage.getItem("favoritos"));
 
     topTreding.then(data => {
-        console.log(data);
-
         for (var i = 0; i < 6; i++) {
             divImgTred.innerHTML= '';
             let datos = data.data[i];
+            console.log(datos.id);
             //links GIF
             favCardTred.dataset.id= i;
+            comprobarFavorito(datos.id, favCardTred);
             descCardTred.dataset.id= i;
             maxCardTred.dataset.id= i;
             divImgTred.appendChild(divLinksTred.cloneNode(true));
@@ -1036,10 +1043,11 @@ function insertaGifTreding(){
             slider.appendChild(divImgTred.cloneNode(true));
             gifTendencias.push(data.data[i]);
 
-            console.log('estoy en crear elemento tredings');
+
 
         }
         slider.removeChild(divImgTred);
+        
 
     }).catch(err => {
         console.error('fetch failed', err);
@@ -1050,21 +1058,22 @@ function moverseA(idDelElemento) {
     location.hash = "#" + idDelElemento;
     console.log('estoy en moverseA');
 }
-// function comprobarFavorito(info){
-//      setTimeout(function(){
-//          for(y= 0; y< gifsRespuestas.length; y++){
-//              let gif = gifsRespuestas[y];
-//              let idGif = gif.id;
-//                  // gifFavoritos = JSON.parse(localStorage.getItem("favoritos"));
-//                  for(i = 0; i< gifFavoritos.length; i++){
-//                      if(gifFavoritos[i].id == idGif){
-//                          info.src = 'assets/icon-fav-active.svg';
-//                          console.log('estoy en comprobar favorito');
-//                      }else{
-//                          console.log('no exite coincidencias');
-//                      }
-//                  }
 
-//          }
-//      }, 5000);
-//  }
+function comprobarFavorito (idGif, favCard){
+    console.log(idGif)
+    let bandera;
+    for(i = 0; i< gifFavoritos.length; i++){
+        console.log(i);
+        if(gifFavoritos[i].id == idGif){
+            bandera = true;
+            i = gifFavoritos.length;
+        }
+    }
+    if(bandera){
+        favCard.firstElementChild.src = 'assets/icon-fav-active.svg';
+        console.log('existen coincidencias con favorito');
+    }else{
+        console.log('no exite coincidencias');
+        favCard.firstElementChild.src = 'assets/icon-fav-hover.svg';
+    }
+}
