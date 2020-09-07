@@ -13,7 +13,8 @@ let btnNocturno = document.getElementById('btnNocturno');
 let grillaMisGifos = document.getElementById('resultado-misGifos');
 let misGifos = document.getElementById('misGifos');
 let misGifosSinCont = document.getElementById('misGifos-sincontenido');
-let gifmisGifos = JSON.parse(localStorage.getItem("misGifos"));
+let idsgifmisGifos = [localStorage.getItem("misGifos")];
+let gifmisGifos;
 let btnVerMasMisGifos = document.getElementById('verMas-misGifos');
 let contadorVermasMisGifos = 8;
 //div contenedor de Gifs
@@ -119,49 +120,55 @@ btnSliderDerGifMax.addEventListener("click", () =>{
 
 //FUNCIONES////FUNCIONES////FUNCIONES////FUNCIONES////FUNCIONES////FUNCIONES////FUNCIONES////FUNCIONES////FUNCIONES//
 function cargaMisGifos() {
-    if(gifmisGifos == null){
-        misGifosSinCont.style.display = 'block';
-        misGifos.style.display = 'none';
-    }else{
-        misGifos.style.display = 'block';
-        if(gifmisGifos.length <= 8){
-            btnVerMasMisGifos.style.display = 'none';
-            for (var i = 0; i < gifmisGifos.length ; i++) {
-                divImg.innerHTML= '';
-                crearElemento(gifmisGifos, i);
-                divImg.classList.add('card-hover');
-                grillaMisGifos.appendChild(divImg.cloneNode(true));
-            }
-            grillaMisGifos.removeChild(divImg);
-            for (var i = gifmisGifos.length; i < 8; i++) {
-                let imgRelleno = document.createElement('img');
-                imgRelleno.src = 'assets/grilla-sinfavoritos.svg';
-                imgRelleno.style.width = '100%';
-                imgRelleno.style.height = '100%';
-                grillaMisGifos.appendChild(imgRelleno);
-            }
-            if(gifmisGifos.length == 0){
-                misGifosSinCont.style.display = 'block';
-                misGifos.style.display = 'none';
-            }
+    url = `${urlGiphy}/gifs?api_key=${apiKey}&ids=${idsgifmisGifos}`;
+    let resultado = conexionApi(url);
+    resultado.then(data => {
+        gifmisGifos = data.data;
+        if(gifmisGifos.length == 0){
+            misGifosSinCont.style.display = 'block';
+            misGifos.style.display = 'none';
         }else{
-            for (var i = 0; i < 8; i++) {
-                divImg.innerHTML= '';
-                crearElemento(gifmisGifos, i);
-                divImg.classList.add('card-hover');
-                grillaMisGifos.appendChild(divImg.cloneNode(true));
+            misGifos.style.display = 'block';
+            if(gifmisGifos.length <= 8){
+                btnVerMasMisGifos.style.display = 'none';
+                for (var i = 0; i < gifmisGifos.length ; i++) {
+                    divImg.innerHTML= '';
+                    crearElemento(gifmisGifos, i);
+                    divImg.classList.add('card-hover');
+                    grillaMisGifos.appendChild(divImg.cloneNode(true));
+                }
+                grillaMisGifos.removeChild(divImg);
+                for (var i = gifmisGifos.length; i < 8; i++) {
+                    let imgRelleno = document.createElement('img');
+                    imgRelleno.src = 'assets/grilla-sinfavoritos.svg';
+                    imgRelleno.style.width = '100%';
+                    imgRelleno.style.height = '100%';
+                    grillaMisGifos.appendChild(imgRelleno);
+                }
+                if(gifmisGifos.length == 0){
+                    misGifosSinCont.style.display = 'block';
+                    misGifos.style.display = 'none';
+                }
+            }else{
+                for (var i = 0; i < 8; i++) {
+                    divImg.innerHTML= '';
+                    crearElemento(gifmisGifos, i);
+                    divImg.classList.add('card-hover');
+                    grillaMisGifos.appendChild(divImg.cloneNode(true));
+                }
+                grillaMisGifos.removeChild(divImg);
+                btnVerMasMisGifos.style.display = 'block';
             }
-            grillaMisGifos.removeChild(divImg);
-            btnVerMasMisGifos.style.display = 'block';
         }
-
-    }
+    }).catch( err=> {
+        console.log(err)
+    });
 }
 
 function crearElemento(d, i){
     let datos = d[i];
       //links GIF
-      eliCard.dataset.id= i;
+      eliCard.dataset.id= datos.id;
       descCard.dataset.id= i;
       maxCard.dataset.id= i;
       divImg.appendChild(divLinks.cloneNode(true));
@@ -443,11 +450,18 @@ function favoritosGif(info, posiciongif, arrayGifs) {
 
 //funcion que llamo en el Onclick de anchor de Eliminar
 function eliminarGif(posiciongif) {
-    gifmisGifos.splice(posiciongif,1);
-    localStorage.setItem('misGifos', JSON.stringify(gifmisGifos));
+    removeItemFromArr(idsgifmisGifos, posiciongif);
+    localStorage.setItem('misGifos', idsgifmisGifos);
     location.reload();
 }
-
+function removeItemFromArr ( arr, item ) {
+    var i = arr[0].indexOf( item );
+    if ( i !== -1 ) {
+        arr[0] = arr[0].replace(`${item},`,"");
+        arr[0] = arr[0].replace(`,${item}`,"");
+        arr[0] = arr[0].replace(item,"");
+    }
+}
 //treding
 function slidering(){
     setTimeout(function(){

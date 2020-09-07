@@ -1,6 +1,7 @@
 //VARIABLES////VARIABLES////VARIABLES////VARIABLES////VARIABLES////VARIABLES////VARIABLES////VARIABLES////VARIABLES//
 //datos de la GIPHY :    dc6zaTOxFJmzC
 const apiKey = 'pafWZGqk8MHrstQqfclfqcJHSjDCHO9f';
+const urlGiphy = 'https://api.giphy.com/v1';
 
 //crear Gifos
 let crear1 = document.getElementById('crear1');
@@ -20,13 +21,14 @@ let s = 0;
 let objStream;
 let recorder;
 let previewGif= document.getElementById('previewGif');
-let form;
+let formm;
+let url;
 let gifCreado;
 let subiendoGif = document.getElementById('subiendoGif');
 let gifSubido = document.getElementById('gifSubido');
 let descarga = document.getElementById('desc');
 let link = document.getElementById('link');
-let gifmisGifos = JSON.parse(localStorage.getItem("misGifos"));
+let idsgifmisGifos = [localStorage.getItem("misGifos")];
 
 
 // modo nocturno
@@ -143,16 +145,16 @@ function parar(){
     repetirCap.style.display = 'block';
     btnSubir.style.display = 'block';
     recorder.stopRecording(function() {
-        form = new FormData();
-        form.append('file', recorder.getBlob(), 'myGif.gif');
-        console.log(form.get('file'));
+        formm = new FormData();
+        formm.append('file', recorder.getBlob(), 'myGif.gif');
         let reader = new FileReader();
-        reader.readAsDataURL(form.get('file'));
+        reader.readAsDataURL(formm.get('file'));
         setTimeout(function(){
             previewGif.style.display = 'block';
             previewGif.src = reader.result;
         }, 3000);
-        video.style.display = 'none';;
+        video.style.display = 'none';
+        
     });
     stopStream(objStream);
 }
@@ -180,7 +182,7 @@ function stopStream(stream){
     });
 }
 
-function subirGifo(form){
+function subirGifo(){
     btnSubir.style.display = 'none';
     repetirCap.style.display = 'none';
     subiendoGif.style.display = 'flex';
@@ -188,32 +190,49 @@ function subirGifo(form){
     botones.children[1].classList.remove("btn-activos");
     botones.children[2].className +="btn-activos";
 
-    fetch(`https://upload.giphy.com/v1/gifs?api_key=${apiKey}`, {
-        method: "POST",
-        body: form,
-        mode: 'no-cors'
-    })
-    .then(response => {
-        let data = response.json();
-        console.log(data);
-        link.href = data.embed_url;
-        gifCreado = data;
+    let conexionGhipy = conexionApiPost(formm);
+    conexionGhipy.then(data => {
+        link.href = `https://media.giphy.com/media/${data.data.id}/giphy.mp4`;
+        url = `${urlGiphy}/gifs/${data.data.id}?api_key=${apiKey}`;
+        let resultado = conexionApi(url);
+        resultado.then(data => {
+            gifCreado = data;
+        });
         subiendoGif.style.display = 'none';
         gifSubido.style.display = 'flex';
-        gifmisGifos.push(gif);
-        localStorage.setItem('favoritos', JSON.stringify(gifmisGifos));
+        if(idsgifmisGifos[0] === null){
+            idsgifmisGifos= [];
+            idsgifmisGifos.push(data.data.id);
+        }else{
+            idsgifmisGifos.push(data.data.id);
+        }
+        localStorage.setItem('misGifos', idsgifmisGifos);
     }).catch( err=> {
-        console.log(err);
-    })
+        console.log(err)
+    });
     
+    async function conexionApiPost(form){
+        const resp = await fetch(`https://upload.giphy.com/v1/gifs?api_key=${apiKey}`, {
+            method: 'POST',
+            body: form,
+        });
+        const data = await resp.json();
+        return data;
+    }
 }
 
+//funcion async general
+async function conexionApi(url){
+    const resp = await fetch(url);
+    const data = await resp.json()
+    return data
+}
 
 
 //funcion que llamo en el Onclick de anchor de Descarga arriba
 function descargaGif (){
     var x=new XMLHttpRequest();
-    x.open("GET", gifCreado.images.original.url, true);
+    x.open("GET", gifCreado.data.images.original.url, true);
     x.responseType = 'blob';
     x.onload=function(e){download(x.response, "descarga.gif", "image/jpg"); }
     x.send();

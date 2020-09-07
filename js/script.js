@@ -154,7 +154,6 @@ btnCloseNav.addEventListener('click', () =>{
     tituloTred.style.display = "block";
     history.replaceState(null, null, ' ');
     scrollBy(0,-1000);
-    console.log('btnclosenav');
 
 })
 
@@ -194,7 +193,6 @@ btnVerMas.addEventListener('click', () =>{
             }else{
                 nuevaGrilla.style.marginTop= '1.56rem';
             }
-            console.log(data);
             for (var i = 0; i < (data.data.length- is_negative_number((data.data.length-(contadorVermas+12)))); i++) {
                 divImg.innerHTML= '';
                 crearElementoVerMas(data, i);
@@ -202,7 +200,6 @@ btnVerMas.addEventListener('click', () =>{
                 nuevaGrilla.appendChild(divImg.cloneNode(true));
                 gifsRespuestas.push(data.data[i]);
             }
-            console.log(data.data.length); 
             if(data.data.length < 11){
                 btnVerMas.style.display = 'none';
                 for (var i = data.data.length; i < 12; i++) {
@@ -237,7 +234,6 @@ btnVerMas.addEventListener('click', () =>{
                 nuevaGrilla.appendChild(divImg.cloneNode(true));
                 gifsRespuestas.push(data.data[i]);
             }
-            console.log(data.data.length); 
             if(data.data.length < 11){
                 btnVerMas.style.display = 'none';
                 for (var i = data.data.length; i < 12; i++) {
@@ -340,7 +336,6 @@ pSug1.addEventListener('click', ()=>{
     btnSearch.style.display = 'none';
     btnClose.style.display = 'block';
     btnVerMas.style.display = 'block';
-    sugerencias.style.display = "none";
     buscarGifs(pSug1.textContent);
     agregarEstilosSug();
     contadorVermas = 12;
@@ -353,7 +348,6 @@ pSug2.addEventListener('click', ()=>{
     btnSearch.style.display = 'none';
     btnClose.style.display = 'block';
     btnVerMas.style.display = 'block';
-    sugerencias.style.display = "none";
     buscarGifs(pSug2.textContent);
     agregarEstilosSug();
     contadorVermas = 12;
@@ -366,7 +360,6 @@ pSug3.addEventListener('click', ()=>{
     btnSearch.style.display = 'none';
     btnClose.style.display = 'block';
     btnVerMas.style.display = 'block';
-    sugerencias.style.display = "none";
     buscarGifs(pSug3.textContent);
     agregarEstilosSug();
     contadorVermas = 12;
@@ -379,7 +372,6 @@ pSug4.addEventListener('click', ()=>{
     btnSearch.style.display = 'none';
     btnClose.style.display = 'block';
     btnVerMas.style.display = 'block';
-    sugerencias.style.display = "none";
     buscarGifs(pSug4.textContent);
     agregarEstilosSug();
     contadorVermas = 12;
@@ -444,7 +436,6 @@ function buscarGifs(keyword){
         let topTendencias = conexionApi(url);
 
         topTendencias.then(data => {
-            console.log(data);
 
             for (var i = 0; i <= 12; i++) {
                 divImg.innerHTML= '';
@@ -464,14 +455,12 @@ function buscarGifs(keyword){
         url = `${urlGiphy}/gifs/search?api_key=${apiKey}&q=${keyword}&limit=12&offset=0`;
         let respuesta  = conexionApi(url);
         respuesta.then(data => {
-            console.log(data);
             if(data.data.length == 0){
                 busquedaSinCont.style.display = 'block';
                 grillaBusq.style.display = 'none';
                 btnVerMas.style.display = 'none';
             }else{
                 if(data.data.length < 11){
-                    console.log('estoy en el if');
                     btnVerMas.style.display = 'none';
                     for (var i = 0; i < data.data.length; i++) {
                         divImg.innerHTML= '';
@@ -488,7 +477,6 @@ function buscarGifs(keyword){
                         grillaBusq.appendChild(imgRelleno);
                     }
                 }else{
-                    console.log('estoy en el else');
                     for (var i = 0; i < 12; i++) {
                         divImg.innerHTML= '';
                         crearElemento(data, i);
@@ -532,8 +520,6 @@ function crearElemento(d, i){
     // Gif
     dataImg.src = datos.images.original.url;
     divImg.appendChild(dataImg);
-    
-    // crearElementoComun(datos);
 }
 
 
@@ -562,30 +548,7 @@ function crearElementoVerMas(d, i){
      // Gif
      dataImg.src = datos.images.original.url;
      divImg.appendChild(dataImg);
-    //  crearElementoComun(datos);
 }
-
-function crearElementoComun(datos){
-    console.log(datos.id);
-    //Usuario Gif
-    pCard.innerHTML= '';
-    textUser = document.createTextNode(datos.username);
-    pCard.appendChild(textUser);
-    divTextos.appendChild(pCard);
-
-    //Titulo Gif
-    h6Card.innerHTML= '';
-    textTit = document.createTextNode(datos.title.substring(0,25));
-    h6Card.appendChild(textTit);
-    divTextos.appendChild(h6Card);
-
-    divImg.appendChild(divTextos);
-
-    // Gif
-    dataImg.src = datos.images.original.url;
-    divImg.appendChild(dataImg);
-}
-
 
 //funcion sugerencias
 function mostrarSugerencias(){
@@ -598,7 +561,6 @@ function mostrarSugerencias(){
             pSug2.textContent = data.data[2].name;
             pSug3.textContent = data.data[3].name;
             pSug4.textContent = data.data[4].name;
-            console.log('if');
         }).catch(err => {
             console.error('fetch failed', err);
         })
@@ -611,7 +573,6 @@ function mostrarSugerencias(){
             pSug2.textContent = data.data[2];
             pSug3.textContent = data.data[3];
             pSug4.textContent = data.data[4];
-            console.log('else');
 
         }).catch(err => {
             console.error('fetch failed', err);
@@ -643,7 +604,6 @@ function quitarEstilosBusq(){
         btnSearch.style.width = "1.25rem";
         btnSearch.style.height = "1.25rem";
         busqueda.style.display = "none";
-        // inputBusq.value = "";
         contenedorBusq.style.height = "3.12rem";
         imgSug0.style.display = "none";
         sugerencias.style.display = "none";
@@ -651,12 +611,10 @@ function quitarEstilosBusq(){
 
         //reseteo la grilla
         grillaBusq.innerHTML = '';
-        // resetear();
     }else{
         btnSearch.style.width = "1.25rem";
         btnSearch.style.height = "1.25rem";
         busqueda.style.display = "none";
-        // inputBusq.value = "";
         tituloH1.style.display = "block";
         dibujo.style.display = "block";
         sugerencias.style.display = "none";
@@ -666,8 +624,6 @@ function quitarEstilosBusq(){
 
         //reseteo la grilla
         grillaBusq.innerHTML = '';
-        // resetear();
-
     }
 }
 function estilosComunes(){
@@ -911,7 +867,6 @@ function minimizarGif(){
 }
 
 function comprobarFavoritoSlider(id, info, arrayGifs){
-    console.log(info);
     let gif = arrayGifs[id];
     let idGif = gif.id;
     let bandera;
@@ -948,7 +903,6 @@ function movimientoSlider(){
 }
 //treding
 function slidering(){
-    console.log('estoy en slidering')
     setTimeout(function(){
         slider.insertBefore(slider.lastElementChild,slider.firstElementChild);
         slider.scrollBy({
@@ -960,8 +914,6 @@ function slidering(){
 }
 
 function next(){
-    console.log('next');
-    
     slider.scrollBy({
         left: 0,
         behavior:'smooth',
@@ -980,8 +932,6 @@ function next(){
 }
 
 function prev(){
-    console.log('prev');
-    
     slider.scrollBy({
         left: -0,
         behavior: 'smooth',
@@ -1000,7 +950,6 @@ function prev(){
 
 if(mediaqueryList.matches){
     slidering();
-    console.log('hola resolucion.matches');
 }
 insertaGifTreding();
 
@@ -1014,7 +963,6 @@ function insertaGifTreding(){
         for (var i = 0; i < 6; i++) {
             divImgTred.innerHTML= '';
             let datos = data.data[i];
-            console.log(datos.id);
             //links GIF
             favCardTred.dataset.id= i;
             comprobarFavorito(datos.id, favCardTred);
@@ -1056,14 +1004,11 @@ function insertaGifTreding(){
 
 function moverseA(idDelElemento) {
     location.hash = "#" + idDelElemento;
-    console.log('estoy en moverseA');
 }
 
 function comprobarFavorito (idGif, favCard){
-    console.log(idGif)
     let bandera;
     for(i = 0; i< gifFavoritos.length; i++){
-        console.log(i);
         if(gifFavoritos[i].id == idGif){
             bandera = true;
             i = gifFavoritos.length;

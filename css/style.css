@@ -412,7 +412,8 @@ header section {
         color: #572EE5;
         letter-spacing: 0;
         text-align: center;
-        text-transform: uppercase; }
+        text-transform: uppercase;
+        cursor: pointer; }
       header nav .barra-superior .contenedor-menu ul li a:hover {
         border-bottom: 0.125rem solid #5ED7C6; }
       header nav .barra-superior .contenedor-menu ul li a:active {
@@ -937,11 +938,14 @@ footer {
     color: black;
     background: #FFFFFF;
     border-radius: 1.562rem; }
-  .modo-nocturno body header #comenzar {
+  .modo-nocturno body header .btn-activos {
+    background: #FFFFFF !important;
+    color: black !important; }
+  .modo-nocturno body header #comenzar, .modo-nocturno body header #grabar, .modo-nocturno body header #finalizar, .modo-nocturno body header #subirGifo {
     background: #37383C;
     color: white;
     border: 0.06rem solid #FFFFFF; }
-  .modo-nocturno body header #comenzar:hover {
+  .modo-nocturno body header #comenzar:hover, .modo-nocturno body header #grabar:hover, .modo-nocturno body header #finalizar:hover, .modo-nocturno body header #subirGifo:hover {
     color: black;
     background: #FFFFFF;
     border-radius: 1.562rem; }
@@ -1028,7 +1032,7 @@ header #misGifos-sincontenido {
     max-height: 41.25rem;
     justify-content: center;
     grid-template-columns: repeat(4, 16.25rem);
-    grid-template-rows: repeat(3, 12.5rem);
+    grid-template-rows: repeat(2, 12.5rem);
     column-gap: 1.81rem;
     row-gap: 2.187rem;
     margin-bottom: 2.187rem; }
@@ -1036,7 +1040,7 @@ header #misGifos-sincontenido {
     max-height: 41.25rem;
     justify-content: center;
     grid-template-columns: repeat(4, 16.25rem);
-    grid-template-rows: repeat(3, 12.5rem);
+    grid-template-rows: repeat(2, 12.5rem);
     column-gap: 1.81rem;
     row-gap: 2.187rem;
     margin-bottom: 2.187rem; }

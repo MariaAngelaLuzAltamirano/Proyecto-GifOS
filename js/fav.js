@@ -434,7 +434,6 @@ function minimizarGif(){
 }
 
 function comprobarFavorito(id, info, arrayGifs){
-    console.log(info);
     let gif = arrayGifs[id];
     let idGif = gif.id;
     let bandera;
@@ -559,12 +558,6 @@ function insertaGifTreding(){
 
         }
         slider.removeChild(divImgTred);
-        // for (var i = 0; i < 6; i++) {
-        //     idCardTred = i;
-        //     favCardMax.dataset.id= idCardMax;
-        //     console.log('entre');
-        //     comprobarFavorito(idCardTred, favCardTred, gifTendencias);
-        // }
 
     }).catch(err => {
         console.error('fetch failed', err);
