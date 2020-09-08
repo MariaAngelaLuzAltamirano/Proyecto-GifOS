@@ -92,23 +92,22 @@ header nav .barra-superior {
       right: 1.625rem;
       z-index: 2;
       background: white; }
-    header nav .barra-superior .contenedor-menu .menu-desplegable div {
+    header nav .barra-superior .contenedor-menu .menu-desplegable dl {
+      display: block;
       background-color: #ffffff;
       height: 0.062rem;
       width: 2.562rem;
       opacity: 0.5;
       margin: 0.687rem auto 0.868rem auto; }
-  header nav .barra-superior .contenedor-menu ul {
+  header nav .barra-superior .contenedor-menu div {
     padding-top: 2rem; }
-    header nav .barra-superior .contenedor-menu ul li {
-      list-style: none; }
-      header nav .barra-superior .contenedor-menu ul li a {
-        display: block;
-        font-size: 20px;
-        color: #ffffff;
-        text-align: center;
-        line-height: 1.875rem;
-        text-decoration: none; }
+    header nav .barra-superior .contenedor-menu div a {
+      display: block;
+      font-size: 20px;
+      color: #ffffff;
+      text-align: center;
+      line-height: 1.875rem;
+      text-decoration: none; }
   header nav .barra-superior .contenedor-menu .crear-Gifos {
     display: none; }
 header .aparece {
@@ -196,7 +195,9 @@ header .titulo-tred {
   line-height: 25px;
   margin: 1.94rem auto 2.81rem auto;
   visibility: visible !important; }
-  header .titulo-tred p {
+  header .titulo-tred span {
+    display: block;
+    color: #572EE5;
     margin-top: 0.12rem;
     font-family: 'Montserrat';
     font-weight: 500;
@@ -308,8 +309,7 @@ header section {
   header section .contenedor-slider .contenedor-treding::-webkit-scrollbar {
     display: none; }
   header section .contenedor-slider {
-    -ms-overflow-style: none;
-    scrollbar-width: none; }
+    -ms-overflow-style: none; }
 
 .card-hover {
   display: flex;
@@ -406,7 +406,11 @@ header section {
         width: 23.156rem;
         justify-content: space-between;
         background: rgba(255, 255, 255, 0.5); }
-      header nav .barra-superior .contenedor-menu ul li a {
+        header nav .barra-superior .contenedor-menu .menu-desplegable dl {
+          display: none; }
+      header nav .barra-superior .contenedor-menu div a {
+        display: block;
+        height: 27px;
         font-size: 14px;
         font-weight: 700;
         color: #572EE5;
@@ -414,13 +418,11 @@ header section {
         text-align: center;
         text-transform: uppercase;
         cursor: pointer; }
-      header nav .barra-superior .contenedor-menu ul li a:hover {
+      header nav .barra-superior .contenedor-menu div a:hover {
         border-bottom: 0.125rem solid #5ED7C6; }
-      header nav .barra-superior .contenedor-menu ul li a:active {
+      header nav .barra-superior .contenedor-menu div a:active {
         color: #9CAFC3;
         border: none; }
-      header nav .barra-superior .contenedor-menu ul div {
-        display: none; }
       header nav .barra-superior .contenedor-menu .crear-Gifos {
         display: block;
         border: 0.06rem solid #572EE5;
@@ -430,7 +432,8 @@ header section {
         margin: 1.125rem 0 0 3.31rem; }
         header nav .barra-superior .contenedor-menu .crear-Gifos div {
           display: flex;
-          justify-content: center; }
+          justify-content: center;
+          padding: 0px; }
           header nav .barra-superior .contenedor-menu .crear-Gifos div span {
             margin-top: 1.625rem;
             width: 1rem;
@@ -540,7 +543,7 @@ header section {
         column-gap: 1.81rem;
         margin: 0; }
         header section .contenedor-slider .contenedor-treding #contenedor-Gif-treding {
-          min-width: calc((100%-5.437rem)/3);
+          min-width: calc(100%/3);
           height: 100%; }
       header section .contenedor-slider .botones-slider {
         display: block;
@@ -641,7 +644,7 @@ header #favoritos-sincontenido {
     line-height: 2.062rem; }
 
 @media (min-width: 768px) {
-  header .contenedor-menu ul li .favorito-activo {
+  header .contenedor-menu .favorito-activo {
     color: #9CAFC3 !important; }
   header .h2-favoritos {
     font-size: 1.562rem; }
@@ -1026,7 +1029,7 @@ header #misGifos-sincontenido {
     line-height: 2.062rem; }
 
 @media (min-width: 768px) {
-  header .contenedor-menu ul li .misGifos-activo {
+  header .contenedor-menu .misGifos-activo {
     color: #9CAFC3 !important; }
   header #misGifos .grilla-misGifos {
     max-height: 41.25rem;
@@ -1057,7 +1060,8 @@ header .contenedor-menu .crearGifos-activo {
   margin: 1.125rem 0 0 3.31rem; }
   header .contenedor-menu .crearGifos-activo div {
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+    padding-top: 0px !important; }
     header .contenedor-menu .crearGifos-activo div span {
       margin-top: 1.625rem;
       width: 1rem;

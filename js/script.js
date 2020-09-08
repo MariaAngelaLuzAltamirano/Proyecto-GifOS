@@ -437,7 +437,7 @@ function buscarGifs(keyword){
 
         topTendencias.then(data => {
 
-            for (var i = 0; i <= 12; i++) {
+            for (var i = 0; i < 12; i++) {
                 divImg.innerHTML= '';
                 crearElemento(data, i);
                 divImg.classList.add('card-hover');

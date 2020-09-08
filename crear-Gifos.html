@@ -22,14 +22,14 @@
                         <svg class="menu" width="15" height="14" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M14 12a1 1 0 010 2H1a1 1 0 010-2zm0-6a1 1 0 010 2H1a1 1 0 110-2zm0-6a1 1 0 010 2H1a1 1 0 110-2z" id="a"/></defs><use id="btn-burger" fill="#572EE5" fill-rule="nonzero" xlink:href="#a"/></svg>           
                     </label>
                     <input type="checkbox" id="menu-btn">
-                    <ul class="menu-desplegable">
+                    <div class="menu-desplegable">
                         <label for="menu-btn" id="btn-x">
                             <svg class="menu" id="menu-click" width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <defs>
                                     <path d="M13.2928932,13.2928932 C13.6834175,12.9023689 14.3165825,12.9023689 14.7071068,13.2928932 L14.7071068,13.2928932 L20,18.585 L25.2928932,13.2928932 C25.6533772,12.9324093 26.2206082,12.9046797 26.6128994,13.2097046 L26.7071068,13.2928932 C27.0976311,13.6834175 27.0976311,14.3165825 26.7071068,14.7071068 L26.7071068,14.7071068 L21.415,20 L26.7071068,25.2928932 C27.0675907,25.6533772 27.0953203,26.2206082 26.7902954,26.6128994 L26.7071068,26.7071068 C26.3165825,27.0976311 25.6834175,27.0976311 25.2928932,26.7071068 L25.2928932,26.7071068 L20,21.415 L14.7071068,26.7071068 C14.3466228,27.0675907 13.7793918,27.0953203 13.3871006,26.7902954 L13.2928932,26.7071068 C12.9023689,26.3165825 12.9023689,25.6834175 13.2928932,25.2928932 L13.2928932,25.2928932 L18.585,20 L13.2928932,14.7071068 C12.9324093,14.3466228 12.9046797,13.7793918 13.2097046,13.3871006 Z" id="path-1"></path>
                                 </defs>
-                                <g id="GIFOS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <g id="00-UI-Kit" transform="translate(-189.000000, -2871.000000)">
+                                <g id="GIFOSS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-189.000000, -2871.000000)">
                                         <g id="Button-Slider-right" transform="translate(176.000000, 2858.000000)">
                                             <mask id="mask-2" fill="white">
                                                 <use xlink:href="#path-1"></use>
@@ -40,12 +40,12 @@
                                 </g>
                             </svg>
                         </label>
-                        <li><a id="btnNocturno">Modo Nocturno</a></li>
-                        <div></div>
-                        <li><a id="favorito" href="favoritos.html">Favoritos</a></li>
-                        <div></div>
-                        <li><a href="mis-gifos.html" id="mis-gifos" >Mis GifOS</a></li>
-                    </ul>
+                        <a id="btnNocturno">Modo Nocturno</a>
+                        <dl></dl>
+                        <a id="favorito" href="favoritos.html">Favoritos</a>
+                        <dl></dl>
+                        <a href="mis-gifos.html" id="mis-gifos">Mis GifOS</a>
+                    </div>
                     <a href="crear-Gifos.html" class="crearGifos-activo">
                         <div >
                             <span></span>
@@ -70,15 +70,15 @@
                     <p class="p1">El acceso a tu camara será válido sólo <br>por el tiempo en el que estés creando el GIFO.</p>
                 </div>
                 <div id="crear3">
-                    <video id="videoGif" src=""></video>
-                    <img id="previewGif" src="" alt="">
+                    <video id="videoGif" src="."></video>
+                    <img id="previewGif" src="." alt="gifCreado">
                     <div id="subiendoGif">
                         <img src="assets/loader.svg" alt="">
                         <p>Estamos subiendo tu GIFO</p>
                     </div>
                     <div id="gifSubido">
                         <div>
-                            <a id= "desc"><img download= "descarga.gif" src="assets/icon-download.svg" alt=""></a>
+                            <a id= "desc" download= "descarga.gif" href=""><img src="assets/icon-download.svg" alt=""></a>
                             <a id= "link" href=""><img src="assets/icon-link.svg" alt=""></a>
                         </div>
                         <img src="assets/check.svg" alt="">
@@ -130,9 +130,10 @@
         </div>
         <p class="copyright">© GIFOS 2020 All Rights Reserved.</p>
     </footer>
-    <script src="js/crearGifos.js">
+    <script src="js/crearGifos.js"></script>
+    <script>
         document.cookie = 'same-site-cookie=foo; SameSite=Lax'; 
         document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
-    </script>
+    </script>    
 </body>
 </html>
