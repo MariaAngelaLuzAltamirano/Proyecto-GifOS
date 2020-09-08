@@ -1008,17 +1008,19 @@ function moverseA(idDelElemento) {
 
 function comprobarFavorito (idGif, favCard){
     let bandera;
-    for(i = 0; i< gifFavoritos.length; i++){
-        if(gifFavoritos[i].id == idGif){
-            bandera = true;
-            i = gifFavoritos.length;
+    if(gifFavoritos != null){
+        for(i = 0; i< gifFavoritos.length; i++){
+            if(gifFavoritos[i].id == idGif){
+                bandera = true;
+                i = gifFavoritos.length;
+            }
         }
-    }
-    if(bandera){
-        favCard.firstElementChild.src = 'assets/icon-fav-active.svg';
-        console.log('existen coincidencias con favorito');
-    }else{
-        console.log('no exite coincidencias');
-        favCard.firstElementChild.src = 'assets/icon-fav-hover.svg';
+        if(bandera){
+            favCard.firstElementChild.src = 'assets/icon-fav-active.svg';
+            console.log('existen coincidencias con favorito');
+        }else{
+            console.log('no exite coincidencias');
+            favCard.firstElementChild.src = 'assets/icon-fav-hover.svg';
+        }
     }
 }
